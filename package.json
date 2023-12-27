@@ -1,0 +1,22 @@
+{
+  "name": "rn-switcher",
+  "version": "1.0.0",
+  "description": "Customizable switcher for react native",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react-native",
+    "rn",
+    "switch",
+    "switcher"
+  ],
+  "author": "singhharshdeep",
+  "license": "ISC",
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-native": "^0.73.1",
+    "twrnc": "3.6.7"
+  }
+}
