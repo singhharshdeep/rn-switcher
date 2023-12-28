@@ -1,6 +1,6 @@
 {
   "name": "rn-switcher",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "Customizable switcher for react native",
   "main": "index.js",
   "scripts": {
@@ -12,11 +12,14 @@
     "switch",
     "switcher"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/singhharshdeep/rn-switcher"
+  },
   "author": "singhharshdeep",
   "license": "ISC",
   "peerDependencies": {
     "react": "^18.2.0",
-    "react-native": "^0.73.1",
-    "twrnc": "3.6.7"
+    "react-native": "^0.73.1"
   }
 }
