@@ -20,6 +20,6 @@
   "license": "ISC",
   "peerDependencies": {
     "react": "^18.2.0",
-    "react-native": "^0.73.1"
+    "react-native": "^0.70.0"
   }
 }
