@@ -1,14 +1,17 @@
 import { useRef, useState } from "react";
-import { View, Pressable, Animated } from "react-native";
-import tw from 'twrnc';
+import { View, Pressable, Animated, Text } from "react-native";
 
 const Switch = ({
-  leftIcon,
-  rightIcon,
+  leftContent = '',
+  rightContent = '',
   disabled = false,
-  onChange,
-  backgroundColor = 'gray-100',
-  switchColor = 'black'
+  onChange = () => {},
+  backgroundColor = '#f3f4f6',
+  switchColor = 'black',
+  containerStyle = {},
+  buttonStyles = {},
+  switchStyles = {},
+  textColor = 'white'
 }) => {
   const [mode, setMode] = useState(0);
   const left = useRef(new Animated.Value(0)).current;
@@ -20,17 +23,33 @@ const Switch = ({
   }
 
   return (
-    <View style={tw`flex flex-row justify-center bg-${backgroundColor} w-24 h-10 rounded-full`}>
-      <Animated.View style={[tw`absolute flex w-1/2 bg-${switchColor} h-full rounded-full`, {
+    <View style={[{
+      flexDirection: 'row',
+      width: 96,
+      height: 40,
+      borderRadius: 9999,
+      backgroundColor
+    }, containerStyle]}>
+      <Animated.View style={[{
+        position: 'absolute',
+        width: '50%',
+        backgroundColor: switchColor,
+        height: '100%',
+        borderRadius: 9999,
         left: left.interpolate({
           inputRange: [0, 1],
           outputRange: ['0%', '50%']
         })
-      }]} />
+      }, switchStyles]} />
       {
-        [leftIcon, rightIcon].map((icon, index) => (
-          <Pressable disabled={disabled} onPress={() => handlePress(index)} style={tw`flex w-1/2 justify-center items-center`}>
-            {icon}
+        [leftContent, rightContent].map((content, index) => (
+          <Pressable disabled={disabled} onPress={() => handlePress(index)} style={[{
+            flex: 1,
+            width: '50%',
+            justifyContent: 'center',
+            alignItems: 'center'
+          }, buttonStyles]}>
+            <Text style={{ color: mode === index ? textColor : switchColor }}>{content}</Text>
           </Pressable>
         ))
       }
